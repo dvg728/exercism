@@ -1,31 +1,22 @@
 class Phrase
 
-  attr_reader :split_words
+  attr_reader :individual_words,
+              :sentence
 
   def initialize(phrase)
-    @phrase      = phrase.downcase.gsub(/\W/, ' ')
-    @split_words = phrase.split(' ')
+    @sentence         = phrase.downcase.gsub(/\W/, ' ')
+    @individual_words = sentence.split(' ')
   end
 
   def word_count
-    split_words   = @phrase.split(' ')
-    counted_words = split_words.count
-    word_count    = {split_words[0] => counted_words}
-    words         = @phrase
-    @split_words  = words.split(" ")
-    creating_hash
+    word_count = individual_words.count
+    create_hash_with_counted_words
   end
 
-  def creating_hash
-    word_hash   = {}
-    split_words.each do |word|
-      if word_hash[word]
-        word_hash[word] = word_hash[word]+1
-      else
-        word_hash[word] = 1
-      end
-    end
-    return word_hash
+  def create_hash_with_counted_words
+    individual_words.each_with_object(Hash.new(0)) {|word, h|
+      h[word] += 1
+    }
   end
 
 

@@ -1,8 +1,11 @@
+require 'minitest'
 require 'minitest/autorun'
-require_relative 'hamming'
+require 'minitest/pride'
+require './hamming'
 
 class HammingTest < MiniTest::Unit::TestCase
   def test_no_difference_between_empty_strands
+    skip
     assert_equal 0, Hamming.compute('', '')
   end
 
@@ -12,7 +15,6 @@ class HammingTest < MiniTest::Unit::TestCase
   end
 
   def test_complete_hamming_distance_in_small_strand
-    skip
     assert_equal 3, Hamming.compute('ACT', 'GGA')
   end
 

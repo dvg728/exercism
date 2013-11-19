@@ -1,6 +1,5 @@
-require 'minitest'
 require 'minitest/autorun'
-require './year'
+require_relative 'year'
 
 class YearTest < MiniTest::Unit::TestCase
   def test_vanilla_leap_year

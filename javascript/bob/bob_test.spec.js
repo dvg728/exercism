@@ -1,7 +1,7 @@
-var Bob = require('./bob').Bob;
+var Person = require('./bob').Person;
 
 describe("Bob", function() {
-  var bob = new Bob();
+  var bob = new Person();
 
   it("stating something", function() {
     var result = bob.hey('Tom-ay-to, tom-aaaah-to.');

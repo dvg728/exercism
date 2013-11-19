@@ -1,4 +1,6 @@
-var Bob = function() {
+var Bob = new Person();
+function Person() {
+
   function isAskingAQuestion(phrase) {
     return phrase[phrase.length-1] == "?";
   };
@@ -17,15 +19,34 @@ var Bob = function() {
 
   this.hey = function(input){
     if(isSilent(input)){
-      return "Fine. Be that way!";
+      return Responses.silent();
     } else if(isShouting(input) && containsAnyAlphabetChars(input)) {
-      return "Woah, chill out!";
+      return Responses.shouting();
     } else if(isAskingAQuestion(input)) {
-      return "Sure.";
+      return Responses.questions();
     } else {
-      return "Whatever.";
+      return Responses.anythingElse();
     };
   };
 };
 
-exports.Bob = Bob;
+exports.Person = Person;
+
+var Responses = {
+
+  silent: function() {
+    return "Fine. Be that way!"
+  },
+
+  shouting: function() {
+    return "Woah, chill out!"
+  },
+
+  questions: function() {
+    return "Sure."
+  },
+
+  anythingElse: function() {
+    return "Whatever."
+  }
+};

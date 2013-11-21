@@ -1,7 +1,20 @@
 var Bob = new Person();
+
 function Person() {
 
-  function isAskingAQuestion(phrase) {
+  this.hey = function(input){
+    if(isSilent(input)){
+      return Responses.silent();
+    } else if(isShouting(input) && containsAnyAlphabetChars(input)) {
+      return Responses.shouting();
+    } else if(askingAQuestion(input)) {
+      return Responses.questions();
+    } else {
+      return Responses.anythingElse();
+    };
+  };
+
+  function askingAQuestion(phrase) {
     return phrase[phrase.length-1] == "?";
   };
 
@@ -17,17 +30,6 @@ function Person() {
     return phrase.search(/[a-zA-Z]/) !== -1;
   }
 
-  this.hey = function(input){
-    if(isSilent(input)){
-      return Responses.silent();
-    } else if(isShouting(input) && containsAnyAlphabetChars(input)) {
-      return Responses.shouting();
-    } else if(isAskingAQuestion(input)) {
-      return Responses.questions();
-    } else {
-      return Responses.anythingElse();
-    };
-  };
 };
 
 exports.Person = Person;

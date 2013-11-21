@@ -6,7 +6,7 @@ class Year
   end
 
   def leap?
-
+    if year/4 then true end
   end
 
 end

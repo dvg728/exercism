@@ -2,7 +2,7 @@ require 'minitest'
 require 'minitest/autorun'
 require './year'
 
-class YearTest < MiniTest::Unit::TestCase
+class YearTest < MiniTest::Test
   def test_vanilla_leap_year
     assert Year.new(1996).leap?
   end

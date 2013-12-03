@@ -1,24 +1,26 @@
 class Year
-  attr_reader :year
+  attr_reader :date
 
-  def initialize(year)
-    @year = year
+  def initialize(date)
+    @date = date
   end
 
   def leap?
     vanilla_year? && !century? || exceptional_century?
   end
 
+private
+
   def vanilla_year?
-    year % 4 == 0
+    date % 4 == 0
   end
 
   def century?
-    year % 100 == 0
+    date % 100 == 0
   end
 
   def exceptional_century?
-    year % 400 == 0
+    date % 400 == 0
   end
 
 end

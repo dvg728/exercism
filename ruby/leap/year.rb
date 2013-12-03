@@ -6,13 +6,19 @@ class Year
   end
 
   def leap?
-    if year/4 then true end
+    vanilla_year? && !century? || exceptional_century?
+  end
+
+  def vanilla_year?
+    year % 4 == 0
+  end
+
+  def century?
+    year % 100 == 0
+  end
+
+  def exceptional_century?
+    year % 400 == 0
   end
 
 end
-
-# ```plain
-# on every year that is evenly divisible by 4
-#   except every year that is evenly divisible by 100
-#     except every year that is evenly divisible by 400.
-# ```

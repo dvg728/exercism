@@ -6,12 +6,12 @@ class School
     @db = Hash.new { [] }
   end
 
-  def add(name, klass)
-    db[klass] += [name]
+  def add(name, grade)
+    db[grade] += [name]
   end
 
-  def grade(num)
-    db[num]
+  def grade(level)
+    db[level]
   end
 
   def sort

@@ -1,28 +1,28 @@
 class Hamming
   class << self
 
-    def compute(input_1, input_2)
-      split_strands(input_1, input_2)
-      number_of_matching_strand_pieces
-    end
+    # def compute(input_1, input_2)
+    #   split_strands(input_1, input_2)
+    #   number_of_matching_strand_pieces
+    # end
 
-    def split_strands(strand_1, strand_2)
-      @strand_1 = strand_1.split('')
-      @strand_2 = strand_2.split('')
-    end
+    # def split_strands(strand_1, strand_2)
+    #   @strand_1 = strand_1.split('')
+    #   @strand_2 = strand_2.split('')
+    # end
 
-    def number_of_matching_strand_pieces
-      puts matching_strand_pieces
-      # if !matching_strand_pieces.empty?
-      #   matching_strand_pieces.count
-      # else
-      #   0
-      # end
-    end
+    # def number_of_matching_strand_pieces
+    #   puts matching_strand_pieces
+    #   if !matching_strand_pieces.empty?
+    #     matching_strand_pieces.count
+    #   else
+    #     0
+    #   end
+    # end
 
-    def matching_strand_pieces
-      @strand_1 & @strand_2
-    end
+    # def matching_strand_pieces
+    #   @strand_1 & @strand_2
+    # end
 
     #take both strands, split up into individual pieces
       #done

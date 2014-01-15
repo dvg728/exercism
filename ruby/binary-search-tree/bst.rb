@@ -1,18 +1,45 @@
 class Bst
-  attr_reader :data
+  attr_reader :data, :left, :right
 
-  def initialize(input)
-    @data = input
+  def initialize(root)
+    @data = root
   end
 
-  def insert(new_data)
-    # is new_data < or > @data
+  def all
+    lefties = []
+    if left
+      lefties = left.all
+    end
+    righties = []
+    if right
+      righties = right.all
+    end
 
-    # add new_data into an array
-
-    # add @data into same array
-
-
+    lefties + [@data] + righties
+    
   end
 
+  def insert(number)
+    if number > data
+      insert_right(number)    
+    else
+      insert_left(number)
+    end
+  end
+
+  def insert_right(number)
+    if right
+      right.insert(number)
+    else
+      @right = Bst.new(number)
+    end
+  end
+
+  def insert_left(number)
+    if left
+      left.insert(number)
+    else
+      @left = Bst.new(number)
+    end
+  end
 end

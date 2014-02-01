@@ -1,8 +1,7 @@
-require 'minitest'
 require 'minitest/autorun'
 require_relative 'grains'
 
-class GrainsTest < MiniTest::Test
+class GrainsTest < MiniTest::Unit::TestCase
 
   def test_square_1
     assert_equal 1, Grains.new.square(1)

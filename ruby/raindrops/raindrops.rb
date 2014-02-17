@@ -8,7 +8,7 @@ class Raindrops
 
 private
 
-  def substitution_for(number)
+  def self.substitution_for(number)
     return_string = ""
 
     if prime_factors(number).include?(3)

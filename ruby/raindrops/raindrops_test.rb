@@ -1,3 +1,4 @@
+require 'minitest'
 require 'minitest/autorun'
 require_relative 'raindrops'
 
@@ -8,7 +9,6 @@ class RaindropsTest < MiniTest::Unit::TestCase
   end
 
   def test_3
-    skip
     assert_equal "Pling", Raindrops.convert(3)
   end
 

@@ -2,7 +2,7 @@ require 'prime'
 
 class Raindrops
 
-  def convert(number)
+  def self.convert(number)
     substitution_for(number) == "" ? number.to_s : substitution_for(number)
   end
 
@@ -24,9 +24,9 @@ private
     end
 
     return_string
-  end 
+  end
 
   def prime_factors(number)
-    @prime_factors ||= Prime.prime_division(number).flatten 
+    @prime_factors ||= Prime.prime_division(number).flatten
   end
 end

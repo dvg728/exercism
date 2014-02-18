@@ -14,14 +14,16 @@ class Bst
     if right
       righties = right.all
     end
-
     lefties + [@data] + righties
-    
+  end
+
+  def each(&block)
+    all.each{|element| yield(element)}
   end
 
   def insert(number)
     if number > data
-      insert_right(number)    
+      insert_right(number)
     else
       insert_left(number)
     end

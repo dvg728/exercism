@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'minitest/pride'
 require_relative 'dna'
 
 class DNATest < MiniTest::Unit::TestCase
@@ -7,13 +8,11 @@ class DNATest < MiniTest::Unit::TestCase
   end
 
   def test_empty_dna_string_has_no_nucleotides
-    skip
     expected = {'A' => 0, 'T' => 0, 'C' => 0, 'G' => 0}
     assert_equal expected, DNA.new('').nucleotide_counts
   end
 
   def test_repetitive_cytidine_gets_counted
-    skip
     assert_equal 5, DNA.new('CCCCC').count('C')
   end
 

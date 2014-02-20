@@ -7,10 +7,7 @@ class DNA
   def initialize(molecules)
     @molecules = molecules.split("")
     valid_molecules = %w(A T C G)
-    validated_molecules =  @molecules.all? { |m| valid_molecules.include?(m) }
-    unless validated_molecules
-      raise ArgumentError
-    end
+    @molecules.all? { |m| valid_molecules.include?(m) }
     @count = 0
     @nucleotides = {'A' => 0, 'T' => 0, 'C' => 0, 'G' => 0 }
     @nucleotides.default = 0

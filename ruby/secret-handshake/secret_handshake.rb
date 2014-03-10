@@ -1,48 +1,27 @@
 class SecretHandshake
-  attr_reader :negative, :data
+  attr_reader :command
 
-  def initialize(input_marker)
-    if input_marker.kind_of?(Fixnum)
-      binary    = input_marker.to_s(2).reverse
-      @data     = binary[0..3]
-      @negative = (binary[4] == "1")
-    else
-      @data = ""
-    end
+  def initialize(command)
+    @command = command
   end
 
   def commands
-    if negative?
-      actions_for(data).reverse
+    if available_commands.include?(@command)
+      available_commands[@command]
     else
-      actions_for(data)
+      []
     end
   end
 
-private
-
-  def known_actions
-    {
-      "1"    => "wink",
-      "10"   => "double blink",
-      "100"  => "close your eyes",
-      "1000" => "jump"
+  def available_commands
+    { 1 => ["wink"],
+      2 => ["double blink"],
+      4 => ["close your eyes"],
+      8 => ["jump"],
+      3 => ["wink","double blink"],
+      19 => ["double blink","wink"],
+      31 => ["jump","close your eyes","double blink","wink"]
     }
-  end
-
-  def actions_for(data)
-    results = []
-    data.chars.each_with_index do |digit, index|
-      if digit == "1"
-        key = digit + ("0" * index)
-        results << known_actions[key]
-      end
-    end
-    results
-  end
-
-  def negative?
-    negative
   end
 
 end

@@ -17,8 +17,8 @@ class ShiftFixnumTest < Minitest::Homework
   end
 
   def test_fixnums_in_binary
-    assert_equal __, 1.to_s(2)
-    assert_equal __, 2.to_s(2)
+    assert_equal 1 , 1.to_s(2)
+    assert_equal 10, 2.to_s(2)
     assert_equal __, 3.to_s(2)
     assert_equal __, 4.to_s(2)
     assert_equal __, 5.to_s(2)

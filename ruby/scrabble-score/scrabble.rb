@@ -8,7 +8,13 @@ class Scrabble
   end
 
   def make_individual_letters_out_of(word)
-    @letters = word.upcase.split("")
+    if word == nil
+      word = ""
+    else
+      word
+    end
+    valid_string = word.gsub(/[\t\n ]/, "")
+    @letters = valid_string.upcase.split("")
   end
 
   def score
@@ -16,15 +22,9 @@ class Scrabble
     @score
   end
 
-  def self.make_individual_letters_out_of(word)
-    @letters = word.upcase.split("")
-  end
-
-  self.score(word)
-    make_individual_lettters_out_of(word)
-    score_letters
-    @score
-  end
+   def self.score(word)
+     new(word).score
+   end
 
   def score_letters
     letters.each do |l|
@@ -37,4 +37,3 @@ class Scrabble
   end
 
 end
-

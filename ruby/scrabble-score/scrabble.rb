@@ -10,8 +10,6 @@ class Scrabble
   def make_individual_letters_out_of(word)
     if word == nil
       word = ""
-    else
-      word
     end
     valid_string = word.gsub(/[\t\n ]/, "")
     @letters = valid_string.upcase.split("")

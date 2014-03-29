@@ -7,7 +7,7 @@ class Scrabble
 
   def initialize(word)
     @score = 0
-    make_individual_letters_out_of(word)
+    @letters = parse(word.to_s)
   end
 
   def score
@@ -17,17 +17,13 @@ class Scrabble
 
 private
 
-  def make_individual_letters_out_of(word)
-    @letters = parse(word.to_s)
-  end
-
   def parse(word)
     word.gsub(/\s+/,"").upcase.chars
   end
 
   def score_letters
-    letters.each do |l|
-      @score += letter_scores[l]
+    letters.each do |letter|
+      @score += letter_scores[letter]
     end
   end
 

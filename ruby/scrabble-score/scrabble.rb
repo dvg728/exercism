@@ -6,13 +6,11 @@ class Scrabble
   end
 
   def initialize(word)
-    @score = 0
     @letters = parse(word.to_s)
   end
 
   def score
     score_letters
-    @score
   end
 
 private
@@ -22,8 +20,8 @@ private
   end
 
   def score_letters
-    letters.each do |letter|
-      @score += letter_scores[letter]
+    letters.inject(0) do |sum, letter|
+      sum += letter_scores[letter]
     end
   end
 

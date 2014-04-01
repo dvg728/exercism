@@ -10,19 +10,15 @@ class Scrabble
   end
 
   def score
-    score_letters
+    letters.inject(0) do |sum, letter|
+      sum += letter_scores[letter]
+    end
   end
 
 private
 
   def parse(word)
     word.gsub(/\s+/,"").upcase.chars
-  end
-
-  def score_letters
-    letters.inject(0) do |sum, letter|
-      sum += letter_scores[letter]
-    end
   end
 
   def letter_scores

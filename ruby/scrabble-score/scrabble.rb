@@ -10,9 +10,7 @@ class Scrabble
   end
 
   def score
-    letters.inject(0) do |sum, letter|
-      sum += letter_scores[letter]
-    end
+    letters.reduce(0){|sum, i| sum += letter_scores[i]}
   end
 
 private

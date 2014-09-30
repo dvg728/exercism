@@ -1,27 +1,19 @@
 class Hamming
 
-  def self.compute(input_1, input_2)
-    split_strands(input_1, input_2)
-    compare_strands
-  end
-
-private
-
-  def self.split_strands(strand_1, strand_2)
-    @strand_1 = strand_1.split('')
-    @strand_2 = strand_2.split('')
-  end
-
-  def self.compare_strands
-    @strand_1.zip(@strand_2).count do |string_a, string_b|
-      self.substitution?(string_a, string_b)
+  def self.compute(strain_a, strain_b)
+    if strain_a.length > strain_b.length
+      strain_a = strain_a[0..strain_b.length-1]
     end
-  end
 
-  def self.substitution?(string_a, string_b)
-    unless string_a == nil || string_b == nil
-      string_a != string_b
+    count = 0
+
+    strain_a.length.times do |i|
+      if strain_b[i] != strain_a[i]
+        count += 1
+      end
     end
+
+    count
   end
 
 end

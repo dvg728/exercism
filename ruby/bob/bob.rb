@@ -1,37 +1,36 @@
 class Bob
-  def hey(phrase)
-    Phrase.parse_phrase(phrase)
+
+  def hey(input)
+    phrase = Phrase.new(input)
+
+    case
+      when phrase.is_silent? then "Fine. Be that way!"
+      when phrase.is_shouting? then "Woah, chill out!"
+      when phrase.is_question? then "Sure."
+    else
+      "Whatever."
+    end
   end
+
 end
 
 class Phrase
-  def self.parse_phrase(phrase)
-    if phrase.strip == ""
-      Response.silence
-    elsif phrase.upcase == phrase && phrase.match(/[a-zA-Z]/)
-      Response.shouting
-    elsif phrase[-1] == "?"
-      Response.question
-    else
-      Response.yelling
-    end
-  end
-end
+  attr_reader :phrase
 
-class Response
-  def self.shouting
-    "Woah, chill out!"
+  def initialize(input)
+    @phrase = input
   end
 
-  def self.question
-    "Sure."
+  def is_silent?
+    phrase.strip == ""
   end
 
-  def self.yelling
-    "Whatever."
+  def is_shouting?
+    phrase.upcase == phrase && phrase.match(/[a-zA-Z]/)
   end
 
-  def self.silence
-    "Fine. Be that way!"
+  def is_question?
+    phrase[-1] == "?"
   end
+
 end

@@ -5,15 +5,9 @@ class Hamming
       strain_a = strain_a[0..strain_b.length-1]
     end
 
-    count = 0
-
-    strain_a.length.times do |i|
-      if strain_b[i] != strain_a[i]
-        count += 1
-      end
-    end
-
-    count
+    strain_a.chars.select.with_index do |c, i|
+      strain_b[i] != strain_a[i]
+    end.count
   end
 
 end

@@ -1,6 +1,6 @@
 class Complement
 
-  COMPLEMENTS = { 
+  COMPLEMENTS = {
     'C' => 'G',
     'G' => 'C',
     'T' => 'A',
@@ -8,13 +8,13 @@ class Complement
   }
 
   def self.of_dna(nucleotide)
-    nucleotide.chars.map do |n| 
+    nucleotide.chars.map do |n|
       COMPLEMENTS[n]
     end.join
   end
 
   def self.of_rna(nucleotide)
-    nucleotide.chars.map do |n| 
+    nucleotide.chars.map do |n|
       COMPLEMENTS.invert[n]
     end.join
   end
